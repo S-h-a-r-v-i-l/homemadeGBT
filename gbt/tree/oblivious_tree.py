@@ -23,7 +23,7 @@ def fit(g_array, h_array, all_feature_bins):
         H[leaf] += h_array[i]
     leaf_values = -G / (H + lambda_)
 
-    return splits, leaf_values
+    return splits, leaf_values, node_assignments
 
 
     
