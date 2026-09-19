@@ -5,7 +5,8 @@ import numpy as np
 
 @njit
 def logcosh_loss(y_true, y_pred):
-    return np.mean(np.log(np.cosh(y_pred - y_true)))
+    abs_x = np.abs(y_pred - y_true)
+    return np.mean(abs_x - np.log(2.0) + np.log1p(np.exp(-2.0 * abs_x)))
 
 @njit
 def compute_gradients_and_hessians(y_true, y_pred):
